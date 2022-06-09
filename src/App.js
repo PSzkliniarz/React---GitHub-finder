@@ -5,6 +5,7 @@ import Footer from './components/layout/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import User from './components/users/User';
+import UserReposList from './components/repos/UserReposList';
 import NotFound from './pages/NotFound';
 import {GithubProvider} from './context/github/GithubContext';
 import {AlertProvider} from './context/alert/AlertContext'
@@ -22,6 +23,7 @@ function App() {
               <Route exac path='/' element={<Home />} />
               <Route path='/about' element={<About />} />
               <Route path='/user/:login' element={<User />} />
+              <Route path='/user/:login/repos' element={<UserReposList />} />
               <Route path='/notfound' element={<NotFound />} />
               <Route path='/*' element={<NotFound />} />
             </Routes>

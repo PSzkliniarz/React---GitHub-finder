@@ -38,3 +38,16 @@ export const getUserAndRepos = async (login) => {
     
 }
 
+//Get all user repos
+export const getUsersRepos = async (login) => {
+    
+    const params = new URLSearchParams({
+        sort: 'created',
+        per_page: 50
+    })
+
+    const response = await github.get(`/users/${login}/repos?${params}`)
+
+    return response.data
+}
+
