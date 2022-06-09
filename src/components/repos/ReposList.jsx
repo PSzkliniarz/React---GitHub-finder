@@ -1,14 +1,17 @@
 import PropTypes from 'prop-types'
 import RepoItem from './RepoItem'
+import { Link } from 'react-router-dom'
 
 
-function ReposList({repos}) {
+function ReposList({repos, login}) {
   return (
     <div className='rounded-lg shadow-lg card bg-base-100'>
       <div className='card-body'>
-        <h2 className='text-3xl my-4 font-bold card-title'>
-          Latest Repositories
-        </h2>
+        <Link to={`/user/${login}/repos`}>
+            <h2 className='text-3xl my-4 font-bold card-title'>
+            Latest Repositories
+            </h2>
+        </Link>   
         {repos.map((repo) => (
           <RepoItem key={repo.id} repo={repo}/>
         ))}
@@ -18,7 +21,8 @@ function ReposList({repos}) {
 }
 
 ReposList.propTypes = {
-    repos: PropTypes.array.isRequired
+    repos: PropTypes.array.isRequired,
+    login: PropTypes.string.isRequired
 }
 
 export default ReposList
